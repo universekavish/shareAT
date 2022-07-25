@@ -31,7 +31,7 @@ const Form = ({ currentId, setCurrentId }) => {
     return (
         <Paper className='classes.paper'>
             <form autoComplete="off" noValidate className={`${classes.root} ${classes.form}`} onSubmit={handleSubmit}>
-                <Typography variant="h6">Creating a post</Typography>
+                <Typography variant="h6">{currentId ? 'Editing' : 'Creating' } a post</Typography>
                 <TextField name="creator" variant="outlined" label="Creator" fullWidth value={postData.creator}
                 // set the state using an object
                 onChange={(e) => setPostData({ ...postData, creator: e.target.value })}/>
