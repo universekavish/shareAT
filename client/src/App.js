@@ -1,44 +1,17 @@
-import React, { useState, useEffect } from 'react';
-import { Container, AppBar, Typography, Grow, Grid} from '@material-ui/core';
-import { useDispatch } from 'react-redux';
-import shareAT from './images/shareAT.png';
+import React from 'react';
+import { Container, Grow, Grid} from '@material-ui/core';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import { getPosts } from './actions/posts';
-import Posts from './components/Posts/Posts';
-import Form from './components/Form/Form';
-import useStyles from './styles';
+import NavBar from './components/Navbar/Navbar';
+import Home from './components/Home/Home';
 
-const App = () => {
-    const [currentId, setCurrentId] = useState(null);
-    const classes = useStyles();
-    const dispatch = useDispatch();
-
-    // successful dispatch
-    useEffect(() => {
-        dispatch(getPosts());
-    }, [currentId, dispatch]);
-
-    return (
+const App = () => (
+    <BrowserRouter>
         <Container maxWidth="lg">
-            <AppBar className={classes.appBar} position="static" color="inherit">
-                <Typography className={classes.heading} variant="h2" align="center">ShareAT</Typography>
-                <img className={classes.image} src={shareAT} alt="shareAT" height="60"/>
-            </AppBar>
-            <Grow in>
-                <Container>
-                    <Grid className={classes.mainContainer} container justifyContent="space-between" alignItems="stretch" spacing={3}>
-                        <Grid item xs={12} sm={7}>
-                            <Posts setCurrentId={setCurrentId} />
-                        </Grid>
-                        <Grid item xs={12} sm={4}>
-                            <Form currentId={currentId} setCurrentId={setCurrentId} />
-                        </Grid>
-                    </Grid>
-                </Container>
-
-            </Grow>
+            <NavBar />
+            <Home />
         </Container>
-    );
-}
+    </BrowserRouter>
+);
 
 export default App;
