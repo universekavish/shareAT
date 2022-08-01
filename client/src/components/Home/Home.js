@@ -5,6 +5,7 @@ import { getPosts } from '../../actions/posts';
 
 import Posts from '../Posts/Posts';
 import Form from '../Form/Form';
+import useStyles from './styles';
 
 const Home = () => {
     const [currentId, setCurrentId] = useState(0);
