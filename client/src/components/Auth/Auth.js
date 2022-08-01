@@ -7,8 +7,10 @@ const Auth = () => {
     const classes = useStyles();
 
     return (
-        <div>Auth</div>
-    )
-}
+        <Container>
+            
+        </Container>
+    );
+};
 
 export default Auth;
